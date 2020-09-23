@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:skala_price_list/components/widgets.dart';
+import '../../components/custom_appbar.dart';
 
 class PriceScreen extends StatelessWidget {
+  final String title = 'Стоимость';
   final String price;
 
   PriceScreen({@required this.price});
@@ -9,7 +10,7 @@ class PriceScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: Widgets.getAppBar(context: context, title: 'Стоимость'),
+      appBar: CustomAppBar(title: title),
       body: SafeArea(
         child: Center(
           child: Text(

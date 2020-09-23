@@ -1,46 +1,42 @@
 import 'package:flutter/material.dart';
-import 'package:skala_price_list/components/price_screen.dart';
-
-import 'navigation_screen.dart';
+import '../screens/price/price_screen.dart';
+import '../screens/navigation/navigation_screen.dart';
 
 class PageRoutes {
   static String _aerobicsTitle = 'Аэробика';
   static String _badmintonTitle = 'Бадминтон';
-  static String _childrenCelebrationsTitle = 'Детские праздники';
-  static String _climbingWallTitle = 'Скалодром';
-  static String _footballAndGamingHallsRoutesTitle = 'Футбольный и игровой зал';
-  static String _gymTitle = 'Тренажерный зал';
-  static String _rhythmicGymnasticsTitle = 'Художественная гимнастика';
-  static String _tableTennisTitle = 'Настольный теннис';
-  static String _tennisTitle = 'Теннис';
   static String _swimmingPoolTitle = 'Бассейн';
+  static String _childrenCelebrationsTitle = 'Детские праздники';
+  static String _tableTennisTitle = 'Настольный теннис';
+  static String _climbingWallTitle = 'Скалодром';
+  static String _tennisTitle = 'Теннис';
+  static String _gymTitle = 'Тренажерный зал';
+  static String _footballAndGamingHallsRoutesTitle = 'Футбольный и игровой зал';
+  static String _rhythmicGymnasticsTitle = 'Художественная гимнастика';
 
   final Map<String, Widget> initialRoutes = {
-    'assets/images/football_and_gaming_halls.jpg': NavigationScreen(
-        title: _footballAndGamingHallsRoutesTitle,
-        cardsInfo: _footballAndGamingHallsRoutes),
-    'assets/images/tennis.jpg':
-        NavigationScreen(title: _tennisTitle, cardsInfo: _tennisRoutes),
-    'assets/images/gym.jpg':
-        NavigationScreen(title: _gymTitle, cardsInfo: _gymRoutes),
-    'assets/images/rhythmic_gymnastics.jpg': NavigationScreen(
-        title: _rhythmicGymnasticsTitle, cardsInfo: _rhythmicGymnasticsRoutes),
+    'assets/images/fitness_programs.jpg':
+        NavigationScreen(title: _aerobicsTitle, cardsInfo: aerobicsRoutes),
     'assets/images/badminton.jpg':
         NavigationScreen(title: _badmintonTitle, cardsInfo: _badmintonRoutes),
-    'assets/images/table_tennis.jpg': NavigationScreen(
-        title: _tableTennisTitle, cardsInfo: _tableTennisRoutes),
+    'assets/images/swimming_pool.jpg': NavigationScreen(
+        title: _swimmingPoolTitle, cardsInfo: _swimmingPoolRoutes),
     'assets/images/children_celebrations.jpg': NavigationScreen(
         title: _childrenCelebrationsTitle,
         cardsInfo: _childrenCelebrationsRoutes),
+    'assets/images/table_tennis.jpg': NavigationScreen(
+        title: _tableTennisTitle, cardsInfo: _tableTennisRoutes),
     'assets/images/climbing_wall.jpg': NavigationScreen(
         title: _climbingWallTitle, cardsInfo: _climbingWallRoutes),
-    'assets/images/swimming_pool.jpg': NavigationScreen(
-        title: _swimmingPoolTitle, cardsInfo: _swimmingPoolRoutes),
-  };
-
-  final Map<String, Widget> initialRoutesWithText = {
-    _aerobicsTitle:
-        NavigationScreen(title: _aerobicsTitle, cardsInfo: aerobicsRoutes),
+    'assets/images/tennis.png':
+        NavigationScreen(title: _tennisTitle, cardsInfo: _tennisRoutes),
+    'assets/images/gym.jpg':
+        NavigationScreen(title: _gymTitle, cardsInfo: _gymRoutes),
+    'assets/images/football_and_gaming_halls.jpg': NavigationScreen(
+        title: _footballAndGamingHallsRoutesTitle,
+        cardsInfo: _footballAndGamingHallsRoutes),
+    'assets/images/rhythmic_gymnastics.jpg': NavigationScreen(
+        title: _rhythmicGymnasticsTitle, cardsInfo: _rhythmicGymnasticsRoutes),
   };
 
   static Map<String, Widget> aerobicsRoutes = {

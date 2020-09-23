@@ -1,19 +1,26 @@
 import 'package:flutter/material.dart';
-import 'components/card_with_image.dart';
+import 'components/card_with_text.dart';
 import '../../components/custom_appbar.dart';
 import '../../components/custom_scroll_view.dart';
-import '../../components/page_routes.dart';
 
-class HomeScreen extends StatefulWidget {
-  final String _title = 'Выберите услугу';
+class NavigationScreen extends StatefulWidget {
+  final String title;
+  final Map<String, Widget> cardsInfo;
+
+  const NavigationScreen(
+      {Key key, @required this.title, @required this.cardsInfo})
+      : super(key: key);
 
   @override
-  _HomeScreenState createState() => _HomeScreenState();
+  State<StatefulWidget> createState() => _NavigationScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _NavigationScreenState extends State<NavigationScreen> {
   @override
   Widget build(BuildContext context) {
+    final List<String> textOfCards = widget.cardsInfo.keys.toList();
+    final List<Widget> cardsPages = widget.cardsInfo.values.toList();
+
     final bool isPortrait =
         MediaQuery.of(context).orientation == Orientation.portrait;
     final double cardHeight = isPortrait
@@ -23,22 +30,19 @@ class _HomeScreenState extends State<HomeScreen> {
         ? MediaQuery.of(context).size.shortestSide * 0.8
         : MediaQuery.of(context).size.longestSide * 0.45;
 
-    PageRoutes routes = PageRoutes();
-    final List assetsPaths = routes.initialRoutes.keys.toList();
-    List screens = routes.initialRoutes.values.toList();
-
     final List<Widget> cards = List.generate(
-      routes.initialRoutes.length,
-      (index) => CardWithImage(
+      widget.cardsInfo.length,
+      (index) => CardWithText(
         cardHeight: cardHeight,
         cardWidth: cardWidth,
-        nextPage: screens.elementAt(index),
-        imagePath: assetsPaths.elementAt(index),
+        nextPage: cardsPages.elementAt(index),
+        cardText: textOfCards.elementAt(index),
+        isPortrait: isPortrait,
       ),
     );
 
     return Scaffold(
-      appBar: CustomAppBar(title: widget._title),
+      appBar: CustomAppBar(title: widget.title),
       body: CustomSingleChildScrollView(
         child: isPortrait
             ? Column(
