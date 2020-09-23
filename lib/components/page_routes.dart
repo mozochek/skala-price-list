@@ -15,28 +15,46 @@ class PageRoutes {
   static String _rhythmicGymnasticsTitle = 'Художественная гимнастика';
 
   final Map<String, Widget> initialRoutes = {
-    'assets/images/fitness_programs.jpg':
-        NavigationScreen(title: _aerobicsTitle, cardsInfo: aerobicsRoutes),
-    'assets/images/badminton.jpg':
-        NavigationScreen(title: _badmintonTitle, cardsInfo: _badmintonRoutes),
+    'assets/images/fitness_programs.jpg': NavigationScreen(
+      title: _aerobicsTitle,
+      cardsInfo: aerobicsRoutes,
+    ),
+    'assets/images/badminton.jpg': NavigationScreen(
+      title: _badmintonTitle,
+      cardsInfo: _badmintonRoutes,
+    ),
     'assets/images/swimming_pool.jpg': NavigationScreen(
-        title: _swimmingPoolTitle, cardsInfo: _swimmingPoolRoutes),
+      title: _swimmingPoolTitle,
+      cardsInfo: _swimmingPoolRoutes,
+    ),
     'assets/images/children_celebrations.jpg': NavigationScreen(
-        title: _childrenCelebrationsTitle,
-        cardsInfo: _childrenCelebrationsRoutes),
+      title: _childrenCelebrationsTitle,
+      cardsInfo: _childrenCelebrationsRoutes,
+    ),
     'assets/images/table_tennis.jpg': NavigationScreen(
-        title: _tableTennisTitle, cardsInfo: _tableTennisRoutes),
+      title: _tableTennisTitle,
+      cardsInfo: _tableTennisRoutes,
+    ),
     'assets/images/climbing_wall.jpg': NavigationScreen(
-        title: _climbingWallTitle, cardsInfo: _climbingWallRoutes),
-    'assets/images/tennis.png':
-        NavigationScreen(title: _tennisTitle, cardsInfo: _tennisRoutes),
-    'assets/images/gym.jpg':
-        NavigationScreen(title: _gymTitle, cardsInfo: _gymRoutes),
+      title: _climbingWallTitle,
+      cardsInfo: _climbingWallRoutes,
+    ),
+    'assets/images/tennis.png': NavigationScreen(
+      title: _tennisTitle,
+      cardsInfo: _tennisRoutes,
+    ),
+    'assets/images/gym.jpg': NavigationScreen(
+      title: _gymTitle,
+      cardsInfo: _gymRoutes,
+    ),
     'assets/images/football_and_gaming_halls.jpg': NavigationScreen(
-        title: _footballAndGamingHallsRoutesTitle,
-        cardsInfo: _footballAndGamingHallsRoutes),
+      title: _footballAndGamingHallsRoutesTitle,
+      cardsInfo: _footballAndGamingHallsRoutes,
+    ),
     'assets/images/rhythmic_gymnastics.jpg': NavigationScreen(
-        title: _rhythmicGymnasticsTitle, cardsInfo: _rhythmicGymnasticsRoutes),
+      title: _rhythmicGymnasticsTitle,
+      cardsInfo: _rhythmicGymnasticsRoutes,
+    ),
   };
 
   static Map<String, Widget> aerobicsRoutes = {
@@ -86,7 +104,7 @@ class PageRoutes {
     ),
   };
 
-  static Map<String, Widget> _badmintonRoutes = {
+  static Map<String, Widget> _badmintonRoutes = <String, Widget>{
     'До 17:00': PriceScreen(
       price:
           'Стоимость аренды площадки для бадминтона до 17:00 составляет: 420р.',
@@ -97,7 +115,7 @@ class PageRoutes {
     ),
   };
 
-  static Map<String, Widget> _childrenCelebrationsRoutes = {
+  static Map<String, Widget> _childrenCelebrationsRoutes = <String, Widget>{
     'От 2 до 15 чел.': PriceScreen(
       price:
           'Стоимость проведения детского праздника от 2 до 15 чел. составляет: 600р./чел.'
@@ -110,10 +128,10 @@ class PageRoutes {
     ),
   };
 
-  static Map<String, Widget> _climbingWallRoutes = {
+  static Map<String, Widget> _climbingWallRoutes = <String, Widget>{
     'Персональные треннировки': NavigationScreen(
       title: _climbingWallTitle,
-      cardsInfo: {
+      cardsInfo: <String, Widget>{
         'Тест карта на 3 подъема': PriceScreen(
           price:
               'Стоимость персональной тренировки, включающую в себя 3 подъема, по тест карте составляет: 500р.',
@@ -125,7 +143,7 @@ class PageRoutes {
     ),
     'Групповые тренировки': NavigationScreen(
       title: _climbingWallTitle,
-      cardsInfo: {
+      cardsInfo: <String, Widget>{
         'Урок для учебных заведений для группы от 10 человек': PriceScreen(
           price:
               'Стоимость урока для группы учебного заведения (от 10 человек) составляет: 160р./чел.',
@@ -136,10 +154,10 @@ class PageRoutes {
         ),
         'Школа скалолазания': NavigationScreen(
           title: _climbingWallTitle,
-          cardsInfo: {
+          cardsInfo: <String, Widget>{
             'Начальная подготовка': NavigationScreen(
               title: _climbingWallTitle,
-              cardsInfo: {
+              cardsInfo: <String, Widget>{
                 'Разовое посещение': PriceScreen(
                   price:
                       'Стоимость разового посещения занятия по начальной подготовке в школе скалолазания составляет: 370р./ч.',
@@ -152,7 +170,7 @@ class PageRoutes {
             ),
             'Спортивная подготовка': NavigationScreen(
               title: _climbingWallTitle,
-              cardsInfo: {
+              cardsInfo: <String, Widget>{
                 'Разовое посещение': PriceScreen(
                   price:
                       'Стоимость разового посещения занятия по спортивной подготовке в школе скалолазания составляет: 250р./ч.',
@@ -169,7 +187,7 @@ class PageRoutes {
     ),
     'Свободное лазание': NavigationScreen(
       title: _climbingWallTitle,
-      cardsInfo: {
+      cardsInfo: <String, Widget>{
         'Разово': PriceScreen(
           price:
               'Стоимость разового свободного лазания на скалодроме составляет: 370р.',
@@ -185,7 +203,7 @@ class PageRoutes {
   static Map<String, Widget> _footballAndGamingHallsRoutes = {
     'В будние дни': NavigationScreen(
       title: _footballAndGamingHallsRoutesTitle,
-      cardsInfo: {
+      cardsInfo: <String, Widget>{
         'В будние дни до 12:00': PriceScreen(
           price:
               'Стоимость аренды футбольного или игрового зала в будние дни до 12:00 составляет: 1800р.',
@@ -206,10 +224,10 @@ class PageRoutes {
     ),
   };
 
-  static Map<String, Widget> _gymRoutes = {
+  static Map<String, Widget> _gymRoutes = <String, Widget>{
     'Разово': NavigationScreen(
       title: _gymTitle,
-      cardsInfo: {
+      cardsInfo: <String, Widget>{
         'До 16:00': PriceScreen(
           price:
               'Стоимость разового посещения тренажерного зала до 16:00 составляет: 296р.',
@@ -226,7 +244,7 @@ class PageRoutes {
     ),
     'По карте "Скала"': NavigationScreen(
       title: _gymTitle,
-      cardsInfo: {
+      cardsInfo: <String, Widget>{
         'До 16:00': PriceScreen(
           price:
               'Стоимость посещения тренажерного зала до 16:00 по персональный карте "Скала" составляет: 224р.',
@@ -239,17 +257,17 @@ class PageRoutes {
     ),
     'Персональное занятие': NavigationScreen(
       title: _gymTitle,
-      cardsInfo: {
+      cardsInfo: <String, Widget>{
         'Разово': PriceScreen(
           price:
               'Стоимость разового персонального занятия в тренажерном зале составляет: 840р.',
         ),
         'По карте': NavigationScreen(
           title: _gymTitle,
-          cardsInfo: {
+          cardsInfo: <String, Widget>{
             'По карте "Премиум"': NavigationScreen(
               title: _gymTitle,
-              cardsInfo: {
+              cardsInfo: <String, Widget>{
                 'Разово': PriceScreen(
                   price:
                       'Стоимость разового персонального занятия в тренажерном зале по персональной карте "Премиум" составляет: 630р.',
@@ -273,17 +291,17 @@ class PageRoutes {
     ),
   };
 
-  static Map<String, Widget> _rhythmicGymnasticsRoutes = {
+  static Map<String, Widget> _rhythmicGymnasticsRoutes = <String, Widget>{
     'Начальная подготовка': NavigationScreen(
       title: _rhythmicGymnasticsTitle,
-      cardsInfo: {
+      cardsInfo: <String, Widget>{
         'Разово': PriceScreen(
           price:
               'Стоимость разового посещения занятия по художественной гимнастике начальной подготовки составляет: 370р.',
         ),
         'По абонементу': NavigationScreen(
           title: _rhythmicGymnasticsTitle,
-          cardsInfo: {
+          cardsInfo: <String, Widget>{
             '2 ак.ч./нед.': PriceScreen(
               price:
                   'Стоимость 2 ак.ч./нед. занятий по художественной гимнастике в начальной группе в неделю по абонементу составляет: 2400р./мес.',
@@ -298,10 +316,10 @@ class PageRoutes {
     ),
     'Спортивная подготовка': NavigationScreen(
       title: _rhythmicGymnasticsTitle,
-      cardsInfo: {
+      cardsInfo: <String, Widget>{
         'Разово': NavigationScreen(
           title: _rhythmicGymnasticsTitle,
-          cardsInfo: {
+          cardsInfo: <String, Widget>{
             '2 часовое занятие': PriceScreen(
               price:
                   'Стоимость разового посещения 2-ух часового занятия по художественной гимнастике спортивной группы составляет: 500р.',
@@ -314,7 +332,7 @@ class PageRoutes {
         ),
         'По абонементу': NavigationScreen(
           title: _rhythmicGymnasticsTitle,
-          cardsInfo: {
+          cardsInfo: <String, Widget>{
             '8 ак.ч./нед.': PriceScreen(
               price:
                   'Стоимость 8 ак.ч./нед. занятий по художественной гимнастике в спортивной группе в неделю по абонементу составляет: 3700р./мес.',
@@ -341,14 +359,14 @@ class PageRoutes {
     ),
   };
 
-  static Map<String, Widget> _tableTennisRoutes = {
+  static Map<String, Widget> _tableTennisRoutes = <String, Widget>{
     'До 17:00': PriceScreen(
       price:
           'Стоимость настольного тенниса до 17:00 для одного человека составляет: 80р./ч.',
     ),
     'После 17:00': NavigationScreen(
       title: _tableTennisTitle,
-      cardsInfo: {
+      cardsInfo: <String, Widget>{
         'Разово': PriceScreen(
           price:
               'Стоимость разового посещения настольного тенниса после 17:00 для одного человека составляет: 130р./ч.',
@@ -365,7 +383,7 @@ class PageRoutes {
     ),
   };
 
-  static Map<String, Widget> _tennisRoutes = {
+  static Map<String, Widget> _tennisRoutes = <String, Widget>{
     'Аренда корта': NavigationScreen(
       title: _tennisTitle,
       cardsInfo: {
@@ -384,10 +402,10 @@ class PageRoutes {
     ),
     'Обучение': NavigationScreen(
       title: _tennisTitle,
-      cardsInfo: {
+      cardsInfo: <String, Widget>{
         'Взрослые': NavigationScreen(
           title: _tennisTitle,
-          cardsInfo: {
+          cardsInfo: <String, Widget>{
             'Персональное занятие': PriceScreen(
               price:
                   'Стоимость персонального занятия для взрослых по абонементу составляет: 1600р./час за 1 человека. Стоимость разового посещения без абонемента составляет: 1800р./час за 1 человека.',
@@ -400,14 +418,14 @@ class PageRoutes {
         ),
         'Дети': NavigationScreen(
           title: _tennisTitle,
-          cardsInfo: {
+          cardsInfo: <String, Widget>{
             'Персональное занятие': PriceScreen(
               price:
                   'Стоимость персонального занятия для детей по абонементу составляет: 1400р./час за 1 ребенка. Стоимость разового посещения без абонемента составляет: 1600р./час за 1 ребенка.',
             ),
             'Школа тенниса': NavigationScreen(
               title: _tennisTitle,
-              cardsInfo: {
+              cardsInfo: <String, Widget>{
                 'Начальная подготовка': PriceScreen(
                   price:
                       'Стоимость обучения ребенка в школе тенниса в группе начальной подготовки по абонементу составляет: 3000р./мес. (3ч./неделю)',
@@ -424,20 +442,20 @@ class PageRoutes {
     ),
   };
 
-  static Map<String, Widget> _swimmingPoolRoutes = {
+  static Map<String, Widget> _swimmingPoolRoutes = <String, Widget>{
     'Самостоятельные тренировки': NavigationScreen(
       title: _swimmingPoolTitle,
-      cardsInfo: {
+      cardsInfo: <String, Widget>{
         'До 16:00': NavigationScreen(
           title: _swimmingPoolTitle,
-          cardsInfo: {
+          cardsInfo: <String, Widget>{
             'Дети до 5 лет': PriceScreen(
               price:
                   'Посещение бассейна до 16:00 для детей до 5 лет бесплатно при покупке одного посещения для взрослых.',
             ),
             'Дети 6-14 лет': NavigationScreen(
               title: _swimmingPoolTitle,
-              cardsInfo: {
+              cardsInfo: <String, Widget>{
                 'Разово': PriceScreen(
                   price:
                       'Стоимость разового посещения бассейна для детей 6-14 лет до 16:00 составляет: 224р.',
@@ -450,7 +468,7 @@ class PageRoutes {
             ),
             'Взрослые и дети от 14 лет': NavigationScreen(
               title: _swimmingPoolTitle,
-              cardsInfo: {
+              cardsInfo: <String, Widget>{
                 'Разово': PriceScreen(
                   price:
                       'Стоимость разового посещения бассейна для взрослых и детей от 14 лет до 16:00 составляет: 296р.',
@@ -465,14 +483,14 @@ class PageRoutes {
         ),
         'После 16:00': NavigationScreen(
           title: _swimmingPoolTitle,
-          cardsInfo: {
+          cardsInfo: <String, Widget>{
             'Дети до 5 лет': PriceScreen(
               price:
                   'Посещение бассейна после 16:00 для детей до 5 лет бесплатно при покупке одного посещения для взрослых.',
             ),
             'Дети 5-14 лет': NavigationScreen(
               title: _swimmingPoolTitle,
-              cardsInfo: {
+              cardsInfo: <String, Widget>{
                 'Разово': PriceScreen(
                   price:
                       'Стоимость разового посещения бассейна для детей 5-14 лет после 16:00 составляет: 280р.',
@@ -510,14 +528,14 @@ class PageRoutes {
     ),
     'Обучение плаванию': NavigationScreen(
       title: _swimmingPoolTitle,
-      cardsInfo: {
+      cardsInfo: <String, Widget>{
         'Персональное занятие': PriceScreen(
           price:
               'Стоимость персонального занятия по обучению плаванию составляет: 1200р.',
         ),
         'Групповое занятие': NavigationScreen(
           title: _swimmingPoolTitle,
-          cardsInfo: {
+          cardsInfo: <String, Widget>{
             'Разовое посещение': PriceScreen(
               price:
                   'Стоимость разового посещения группового занятия по плаванию составляет: 420р.',
@@ -536,7 +554,7 @@ class PageRoutes {
     ),
     '"Аква Бэйби"': NavigationScreen(
       title: _swimmingPoolTitle,
-      cardsInfo: {
+      cardsInfo: <String, Widget>{
         'Разовое посещение': PriceScreen(
           price: 'Стоимость разового посещения "Аква Бэйби" составляет: 420р.',
         ),
@@ -548,7 +566,7 @@ class PageRoutes {
     ),
     'Аренда': NavigationScreen(
       title: _swimmingPoolTitle,
-      cardsInfo: {
+      cardsInfo: <String, Widget>{
         '1 дорожка': PriceScreen(
           price: 'Стоимость аренды одной дорожки бассейна составляет: 2500р.',
         ),
