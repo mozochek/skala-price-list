@@ -1,27 +1,33 @@
 import 'package:flutter/material.dart';
 import 'components/card_with_image.dart';
 import '../../components/custom_appbar.dart';
-import '../../components/custom_scroll_view.dart';
 import '../../components/page_routes.dart';
 
-class HomeScreen extends StatefulWidget {
-  final String _title = 'Выберите услугу';
+class HomeScreen extends StatelessWidget {
+  final String title = 'Выберите услугу';
 
-  @override
-  _HomeScreenState createState() => _HomeScreenState();
-}
-
-class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     final bool isPortrait =
         MediaQuery.of(context).orientation == Orientation.portrait;
-    final double cardHeight = isPortrait
-        ? MediaQuery.of(context).size.longestSide * 0.35
-        : MediaQuery.of(context).size.shortestSide * 0.6;
-    final double cardWidth = isPortrait
-        ? MediaQuery.of(context).size.shortestSide * 0.8
-        : MediaQuery.of(context).size.longestSide * 0.45;
+    double cardHeight;
+    double cardWidth;
+
+    if (MediaQuery.of(context).size.shortestSide < 600) {
+      cardHeight = isPortrait
+          ? MediaQuery.of(context).size.longestSide * 0.35
+          : MediaQuery.of(context).size.shortestSide * 0.6;
+      cardWidth = isPortrait
+          ? MediaQuery.of(context).size.shortestSide * 0.8
+          : MediaQuery.of(context).size.longestSide * 0.45;
+    } else {
+      cardHeight = isPortrait
+          ? MediaQuery.of(context).size.longestSide * 0.4
+          : MediaQuery.of(context).size.shortestSide * 0.6;
+      cardWidth = isPortrait
+          ? MediaQuery.of(context).size.shortestSide * 0.8
+          : MediaQuery.of(context).size.longestSide * 0.6;
+    }
 
     PageRoutes routes = PageRoutes();
     final List assetsPaths = routes.initialRoutes.keys.toList();
@@ -38,17 +44,28 @@ class _HomeScreenState extends State<HomeScreen> {
     );
 
     return Scaffold(
-      appBar: CustomAppBar(title: widget._title),
-      body: CustomSingleChildScrollView(
-        child: isPortrait
-            ? Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: cards,
-              )
-            : Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: cards,
+      body: SafeArea(
+        child: Column(
+          children: [
+            CustomAppBar(title: title),
+            Container(
+              height: 1,
+              color: Color.fromRGBO(17, 43, 104, 1.0),
+            ),
+            Expanded(
+              child: Container(
+                width: MediaQuery.of(context).size.width,
+                child: SingleChildScrollView(
+                  scrollDirection: Axis.vertical,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: cards,
+                  ),
+                ),
               ),
+            ),
+          ],
+        ),
       ),
     );
   }
