@@ -1,36 +1,37 @@
 import 'package:flutter/material.dart';
+import 'package:skala_price_list/components/back_icon_button.dart';
 import 'home_icon_button.dart';
 
-class CustomAppBar extends PreferredSize {
+class CustomAppBar extends StatelessWidget {
   final String title;
-  final List<Widget> actions = [];
 
   CustomAppBar({@required this.title});
 
   @override
-  Size get preferredSize => Size.fromHeight(AppBar().preferredSize.height);
-
-  @override
   Widget build(BuildContext context) {
-    final bool isMobileLayout =
-        MediaQuery.of(context).size.shortestSide < 600.0;
-
-    if (Navigator.canPop(context)) {
-      actions.add(
-        HomeIconButton(),
-      );
-    }
-    return AppBar(
-      title: Text(
-        title,
-        style: TextStyle(
-          fontSize: isMobileLayout ? 18.0 : 22.0,
-        ),
+    return Container(
+      height: 50.0,
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: <Widget>[
+          Navigator.canPop(context) ? BackIconButton() : SizedBox.shrink(),
+          Expanded(
+            child: Align(
+              alignment: Alignment.center,
+              child: Text(
+                title,
+                style: TextStyle(
+                  fontFamily: 'RobotoMedium',
+                  fontWeight: FontWeight.bold,
+                  letterSpacing: 0.5,
+                  color: Color.fromRGBO(17, 43, 104, 1.0),
+                ),
+              ),
+            ),
+          ),
+          Navigator.canPop(context) ? HomeIconButton() : SizedBox.shrink(),
+        ],
       ),
-      actions: actions,
-      centerTitle: true,
-      backgroundColor: Colors.cyan,
-      shadowColor: Colors.black,
     );
   }
 }
