@@ -23,7 +23,24 @@ class CardWithText extends StatelessWidget {
       cardWidth: this.cardWidth,
       nextPage: this.nextPage,
       child: Container(
-        color: Color.fromRGBO(17, 43, 104, 1.0),
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            colors: [
+              /*Color.fromRGBO(13, 99, 117, 46),
+              Color.fromRGBO(14, 78, 128, 50),
+              Color.fromRGBO(17, 43, 104, 41),
+              Color.fromRGBO(14, 18, 128, 50),*/
+              Color.fromRGBO(39, 101, 245, 96),
+              Color.fromRGBO(29, 75, 181, 71),
+              Color.fromRGBO(19, 48, 117, 46),
+              Color.fromRGBO(17, 43, 105, 41),
+              Color.fromRGBO(13, 33, 79, 31),
+            ],
+            tileMode: TileMode.repeated,
+          ),
+        ),
         child: Stack(
           children: <Widget>[
             Positioned(
@@ -42,7 +59,8 @@ class CardWithText extends StatelessWidget {
                   textAlign: TextAlign.end,
                   style: TextStyle(
                     color: Colors.white,
-                    fontSize: 24.0,
+                    fontSize: 20.0,
+                    fontFamily: "RobotoMedium",
                   ),
                 ),
               ),
