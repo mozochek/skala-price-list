@@ -8,6 +8,7 @@ class Application extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      title: 'Прайс лист СЦ"Скала"',
       debugShowCheckedModeBanner: false,
       home: HomeScreen(),
     );
