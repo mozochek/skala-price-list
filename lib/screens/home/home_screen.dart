@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'components/card_with_image.dart';
-import '../../components/custom_appbar.dart';
+import '../../components/widgets.dart';
 import '../../components/page_routes.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -10,10 +10,11 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final bool isPortrait =
         MediaQuery.of(context).orientation == Orientation.portrait;
+    final bool isMobile = MediaQuery.of(context).size.shortestSide < 600;
     double cardHeight;
     double cardWidth;
 
-    if (MediaQuery.of(context).size.shortestSide < 600) {
+    if (isMobile) {
       cardHeight = isPortrait
           ? MediaQuery.of(context).size.longestSide * 0.35
           : MediaQuery.of(context).size.shortestSide * 0.6;
@@ -55,13 +56,21 @@ class HomeScreen extends StatelessWidget {
             Expanded(
               child: Container(
                 width: MediaQuery.of(context).size.width,
-                child: SingleChildScrollView(
-                  scrollDirection: Axis.vertical,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: cards,
-                  ),
-                ),
+                child: isPortrait
+                    ? SingleChildScrollView(
+                        scrollDirection: Axis.vertical,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: cards,
+                        ),
+                      )
+                    : SingleChildScrollView(
+                        scrollDirection: Axis.horizontal,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: cards,
+                        ),
+                      ),
               ),
             ),
           ],

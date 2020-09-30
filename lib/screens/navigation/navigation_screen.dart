@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'components/card_with_text.dart';
-import '../../components/custom_appbar.dart';
+import '../../components/widgets.dart';
 
 class NavigationScreen extends StatelessWidget {
   final String title;
@@ -58,13 +58,21 @@ class NavigationScreen extends StatelessWidget {
               child: Container(
                 alignment: AlignmentDirectional.center,
                 width: MediaQuery.of(context).size.width,
-                child: SingleChildScrollView(
-                  scrollDirection: Axis.vertical,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: cards,
-                  ),
-                ),
+                child: isPortrait
+                    ? SingleChildScrollView(
+                        scrollDirection: Axis.vertical,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: cards,
+                        ),
+                      )
+                    : SingleChildScrollView(
+                        scrollDirection: Axis.horizontal,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: cards,
+                        ),
+                      ),
               ),
             ),
           ],
