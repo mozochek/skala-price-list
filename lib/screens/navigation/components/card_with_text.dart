@@ -18,6 +18,8 @@ class CardWithText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final bool isMobile = MediaQuery.of(context).size.shortestSide < 600;
+
     return CustomCard(
       cardHeight: this.cardHeight,
       cardWidth: this.cardWidth,
@@ -28,10 +30,6 @@ class CardWithText extends StatelessWidget {
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
             colors: [
-              /*Color.fromRGBO(13, 99, 117, 46),
-              Color.fromRGBO(14, 78, 128, 50),
-              Color.fromRGBO(17, 43, 104, 41),
-              Color.fromRGBO(14, 18, 128, 50),*/
               Color.fromRGBO(39, 101, 245, 96),
               Color.fromRGBO(29, 75, 181, 71),
               Color.fromRGBO(19, 48, 117, 46),
@@ -59,7 +57,7 @@ class CardWithText extends StatelessWidget {
                   textAlign: TextAlign.end,
                   style: TextStyle(
                     color: Colors.white,
-                    fontSize: 20.0,
+                    fontSize: isMobile ? 20.0 : 36.0,
                     fontFamily: "RobotoMedium",
                   ),
                 ),
