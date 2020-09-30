@@ -9,9 +9,12 @@ class CustomAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    bool isMobile = MediaQuery.of(context).size.shortestSide < 600;
+
     return Container(
-      height: 50.0,
+      height: isMobile ? 50.0 : 75.0,
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           Navigator.canPop(context) ? BackIconButton() : SizedBox.shrink(),
@@ -24,6 +27,7 @@ class CustomAppBar extends StatelessWidget {
                   fontFamily: 'RobotoMedium',
                   fontWeight: FontWeight.bold,
                   letterSpacing: 0.5,
+                  fontSize: isMobile ? 14.0 : 24.0,
                   color: Color.fromRGBO(17, 43, 104, 1.0),
                 ),
               ),
