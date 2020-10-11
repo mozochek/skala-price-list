@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:skala_price_list/components/back_icon_button.dart';
+import 'back_icon_button.dart';
 import 'home_icon_button.dart';
 
 class CustomAppBar extends StatelessWidget {
@@ -11,13 +11,18 @@ class CustomAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     bool isMobile = MediaQuery.of(context).size.shortestSide < 600;
 
+    // Temporary code till Navigator.canPop won't be fixed
+    final ModalRoute<dynamic> parentRoute = ModalRoute.of(context);
+    bool canPop = parentRoute?.canPop ?? false;
+    //
+
     return Container(
       height: isMobile ? 50.0 : 75.0,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
-          Navigator.canPop(context) ? BackIconButton() : SizedBox.shrink(),
+          canPop ? BackIconButton() : SizedBox.shrink(),
           Expanded(
             child: Align(
               alignment: Alignment.center,
@@ -33,7 +38,7 @@ class CustomAppBar extends StatelessWidget {
               ),
             ),
           ),
-          Navigator.canPop(context) ? HomeIconButton() : SizedBox.shrink(),
+          canPop ? HomeIconButton() : SizedBox.shrink(),
         ],
       ),
     );
