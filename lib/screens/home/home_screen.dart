@@ -31,7 +31,7 @@ class HomeScreen extends StatelessWidget {
     }
 
     PageRoutes routes = PageRoutes();
-    final List assetsPaths = routes.initialRoutes.keys.toList();
+    final List<String> assetsPaths = routes.initialRoutes.keys.toList();
     List screens = routes.initialRoutes.values.toList();
 
     final List<Widget> cards = List.generate(
