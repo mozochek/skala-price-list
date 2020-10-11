@@ -11,7 +11,7 @@ class PriceScreen extends StatelessWidget {
 
   const PriceScreen({
     @required this.serviceName,
-    this.additionalInfo: '<Доп.информация отсутствует>',
+    this.additionalInfo,
     this.pricePrefix: 'Стоимость:',
     @required this.price,
     @required this.pricePostfix,
@@ -59,11 +59,12 @@ class PriceScreen extends StatelessWidget {
                           child: Align(
                             alignment: Alignment.center,
                             child: Text(
-                              additionalInfo,
+                              '$pricePrefix $price $pricePostfix',
                               textAlign: TextAlign.center,
                               style: TextStyle(
-                                color: Color.fromRGBO(0, 0, 0, 0.6),
-                                fontSize: isMobile ? 20.0 : 30.0,
+                                color: Color.fromRGBO(0, 0, 0, 0.75),
+                                fontSize: isMobile ? 24.0 : 38.0,
+                                height: 1.1,
                                 fontFamily: "RobotoMedium",
                               ),
                             ),
@@ -74,16 +75,24 @@ class PriceScreen extends StatelessWidget {
                           color: Colors.black.withOpacity(0.11),
                           margin: EdgeInsets.symmetric(vertical: 20.0),
                         ),
-                        Text(
-                          '$pricePrefix $price $pricePostfix',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            color: Color.fromRGBO(0, 0, 0, 0.75),
-                            fontSize: isMobile ? 24.0 : 36.0,
-                            height: 1.1,
-                            fontFamily: "RobotoMedium",
-                          ),
-                        ),
+                        additionalInfo != null
+                            ? Expanded(
+                                child: Align(
+                                  alignment: Alignment.center,
+                                  child: SingleChildScrollView(
+                                    child: Text(
+                                      additionalInfo,
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                        color: Color.fromRGBO(0, 0, 0, 0.6),
+                                        fontSize: isMobile ? 20.0 : 30.0,
+                                        fontFamily: "RobotoMedium",
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              )
+                            : SizedBox.shrink(),
                       ],
                     ),
                   ),
